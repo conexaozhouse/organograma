@@ -6,6 +6,15 @@
   <title>Organograma zhouse</title>
   <link rel="preload" href="fonts/Rubik.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="fonts/MaterialIcons.woff2" as="font" type="font/woff2" crossorigin>
+  <script>
+    // Celular abre a versão mobile automaticamente, a menos que a pessoa tenha escolhido ver o organograma completo
+    (function () {
+      var phone = window.matchMedia && matchMedia('(pointer: coarse)').matches && Math.min(screen.width, screen.height) <= 600;
+      window.ORG_IS_PHONE = !!phone;
+      var pref = null; try { pref = sessionStorage.getItem('org-view'); } catch (e) {}
+      if (phone && pref !== 'full') location.replace('mobile.html' + location.hash);
+    })();
+  </script>
   <link rel="stylesheet" href="css/styles.css">
   <style>html, body { margin: 0; background: #F6F7FB; }</style>
 </head>

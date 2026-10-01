@@ -289,6 +289,10 @@
     ['fit_screen', 'Veja tudo', 'Use “Ver organograma inteiro” para reenquadrar a área.']
   ];
   var tipIdx = 0;
+  var toMobile = function () { try { sessionStorage.removeItem('org-view'); } catch (e) {} };
+  var fromMobile = window.ORG_IS_PHONE; try { fromMobile = fromMobile || sessionStorage.getItem('org-view') === 'full'; } catch (e) {}
+  var mobileLink = fromMobile ? el('a', 'org-help-link', { href: 'mobile.html', onclick: toMobile }, [icon('smartphone'), 'Voltar para a versão celular']) : null;
+
   var tipIc = el('span', 'org-tip-ic', { 'aria-hidden': 'true' });
   var tipTitle = el('strong', 'org-tip-title'), tipText = el('p', 'org-tip-text');
   var tipCount = el('span', 'org-tip-count');
@@ -319,7 +323,8 @@
       el('div', 'org-tip-top', null, [el('span', 'org-tip-label', { text: 'Como usar' }), tipCount]),
       el('div', 'org-tip-body', { 'aria-live': 'polite' }, [tipIc, el('div', null, null, [tipTitle, tipText])]),
       el('div', 'org-tip-foot', null, [prevBtn, dots, nextBtn])
-    ])
+    ]),
+    mobileLink
   ]);
   function closeHelp(refocus) { if (helpPanel.hidden) return; helpPanel.hidden = true; helpBtn.setAttribute('aria-expanded', 'false'); if (refocus) helpBtn.focus(); }
   helpBtn.addEventListener('click', function () { var o = helpPanel.hidden; helpPanel.hidden = !o; helpBtn.setAttribute('aria-expanded', o ? 'true' : 'false'); });
@@ -354,6 +359,7 @@
   var shell = el('div', 'org-shell', { style: 'position:relative;flex:1;min-height:0;display:flex;flex-direction:column' }, [viewport, tools, legend]);
   root.appendChild(top);
   root.appendChild(shell);
+
 
   /* ---------- zoom / pan ---------- */
   function natural() { return { w: canvas.offsetWidth, h: canvas.offsetHeight }; }
@@ -447,6 +453,7 @@
     state.chart = c.id;
     menuItems().forEach(function (t) { t.setAttribute('aria-selected', t.getAttribute('data-chart') === c.id ? 'true' : 'false'); });
     pickVal.textContent = c.label;
+    if (mobileLink) mobileLink.href = 'mobile.html#' + c.id;
     homeBtn.disabled = c.id === D.charts[0].id;
     viewport.setAttribute('aria-label', 'Organograma: ' + c.label);
 

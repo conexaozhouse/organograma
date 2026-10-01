@@ -198,10 +198,10 @@ button.org-card:hover .org-name, button.org-mini:hover .org-name { color: var(--
 .org-card .org-text { display: flex; flex-direction: column; gap: 2px; width: 100%; min-width: 0; }
 .org-name { font-size: 14px; line-height: 20px; font-weight: 500; color: var(--org-ink); overflow-wrap: anywhere; transition: color 150ms var(--org-ease); }
 .org-role { font-size: 12px; line-height: 16px; letter-spacing: 0.2px; color: var(--org-ink-2); overflow-wrap: anywhere; }
-.org-card--ceo { background: var(--org-earth); }
-.org-card--ceo .org-name { color: #fff; font-size: 16px; line-height: 24px; }
-.org-card--ceo .org-role { color: rgba(255, 255, 255, 0.85); }
-button.org-card--ceo:hover .org-name { color: #fff; }
+.org-card--ceo { background: #fff; box-shadow: 0 0 0 1.5px var(--org-sand), var(--org-shadow-raised); }
+.org-card--ceo .org-name { font-size: 16px; line-height: 24px; }
+.org-card--ceo .org-role { display: inline-block; align-self: center; width: auto; margin-top: 4px; padding: 2px 10px; border-radius: 20px; background: var(--org-sand-soft); border: 1px solid var(--org-sand-line); color: var(--org-earth); font-weight: 500; }
+button.org-card--ceo:hover { box-shadow: 0 0 0 1.5px var(--org-sand), var(--org-shadow-raised); }
 .org-card--vacant .org-name, .org-mini--vacant .org-name { color: var(--org-ink-2); font-style: italic; }
 .org-card--area { background: var(--org-sand-soft); box-shadow: none; border: 1px solid var(--org-sand-line); }
 
@@ -210,7 +210,7 @@ button.org-card--ceo:hover .org-name { color: #fff; }
 
 /* Foto */
 .org-photo { position: relative; flex-shrink: 0; width: 64px; height: 64px; border-radius: 50%; overflow: hidden; background: var(--org-sand); color: #fff; display: flex; align-items: center; justify-content: center; font-weight: 500; font-size: 24px; letter-spacing: 0.5px; box-shadow: 0 0 0 4px #fff, 0 0 0 5px var(--org-sand-line); }
-.org-card--ceo .org-photo { box-shadow: 0 0 0 4px var(--org-earth), 0 0 0 5px rgba(255,255,255,0.35); }
+.org-card--ceo .org-photo { box-shadow: 0 0 0 4px #fff, 0 0 0 6px var(--org-sand); }
 .org-photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
 .org-photo.is-vacant { background: #fff; color: var(--org-ink-3); border: 1.5px dashed var(--org-ink-3); box-shadow: none; }
 .org-photo.is-entity, .org-photo.is-area { border-radius: 8px; background: #fff; color: var(--org-sand); border: 1px solid var(--org-border); box-shadow: none; }
@@ -261,7 +261,7 @@ button.org-mini:hover { border-color: var(--org-sand); box-shadow: var(--org-sha
 /* Destaque após busca */
 .org-dim { position: absolute; inset: 0; z-index: 5; background: rgba(246, 247, 251, 0.6); opacity: 0; pointer-events: none; transition: opacity 700ms var(--org-ease); }
 .org-dim.is-on { opacity: 1; transition-duration: 300ms; }
-.org-app .is-spot { position: relative; z-index: 6; transform: scale(1.04); box-shadow: 0 0 0 2px var(--org-sand), var(--org-shadow-raised); }
+.org-app .is-spot { position: relative; z-index: 6; }
 .org-app .org-card, .org-app .org-mini { transition: box-shadow 500ms var(--org-ease), transform 500ms var(--org-ease), border-color 150ms var(--org-ease); }
 
 /* Botões de ícone (início / ajuda) */
@@ -354,4 +354,31 @@ button.org-mini:hover { border-color: var(--org-sand); box-shadow: var(--org-sha
 }
 @media (prefers-reduced-motion: reduce) {
   .org-app *, .org-app *::before, .org-app *::after { animation: none !important; transition: none !important; }
+}
+
+.org-help-link { display: flex; align-items: center; justify-content: center; gap: 6px; height: 40px; border-radius: 8px; border: 1px solid var(--org-border); font-size: 14px; font-weight: 500; color: var(--org-ink) !important; }
+.org-help-link:hover { border-color: var(--org-sand); }
+.org-help-link .org-icon { font-size: 18px; color: var(--org-sand); }
+.org-mobile-pill { position: absolute; z-index: 25; left: 50%; top: 12px; transform: translateX(-50%); display: inline-flex; align-items: center; gap: 6px; height: 40px; padding: 0 16px; border-radius: 20px; background: var(--org-earth); color: #fff !important; font-size: 14px; font-weight: 500; box-shadow: var(--org-shadow-raised); white-space: nowrap; }
+.org-mobile-pill .org-icon { font-size: 18px; }
+
+/* Celular vendo o formato de fluxo: topo igual ao da versão celular */
+@media (max-width: 640px) {
+  .org-top { padding: 12px 16px 12px; gap: 0; }
+  .org-titlebar { display: grid; grid-template-columns: 44px minmax(0, 1fr) 44px; grid-template-areas: "title title help" "home picker picker" "search search search"; gap: 10px 8px; }
+  .org-controls { display: contents; }
+  .org-title { grid-area: title; gap: 0; }
+  .org-title-badge { display: none; }
+  .org-title h1 { font-size: 20px; line-height: 28px; letter-spacing: -0.4px; }
+  .org-controls > .org-icon-btn { grid-area: home; }
+  .org-picker { grid-area: picker; min-width: 0; }
+  .org-search { grid-area: search; max-width: none; }
+  .org-help { grid-area: help; }
+  .org-icon-btn, .org-picker-btn, .org-search-field { width: 100%; height: 44px; border-radius: 12px; }
+  .org-help .org-icon-btn { width: 44px; }
+  .org-search-field input { font-size: 16px; }
+  .org-kbd { display: none; }
+  .org-menu { top: 50px; border-radius: 12px; }
+  .org-results { top: 50px; }
+  .org-help-panel { top: 50px; right: 0; }
 }
