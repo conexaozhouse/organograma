@@ -55,15 +55,19 @@ A hierarquia foi lida dos **conectores** de cada slide (quem liga a quem), não 
 
 Convenções do PPT mantidas: caixas cinza = subáreas; caixa bege = **Atuação transversal** (conectada ao líder); caixa azul = **Consultores especializados** (sem conector no PPT); verde = **Interino**. "TBD" e "XX" aparecem como **A definir**.
 
-### Pontos ambíguos (não inventei — confirme)
-1. **Anna Letícia Azevedo (PMO de Transição Organizacional)** — slide 1 sem conector; exibida como assessoria lateral do CEO, como no posicionamento do PPT.
-2. **Bruno Bruschinelli (Processos)** — conector parte dele e não termina em nenhum card; exibido como assessoria lateral do CEO.
-3. **CSC**: slide 1 indica **Evandro Salles**; slide 10 (Fase 2) indica **XX**. Mantive cada slide como está.
-4. **Instituto Humanize**: no slide 1 está sob "Estrutura em evolução"; no slide 11 aparece diretamente abaixo do CEO.
-5. **Legenda "Gestão Matricial"** (slide 2) — não há nenhum card identificável com essa marcação; não foi aplicada.
-6. **Maria Luiza** aparece em Amma e em Juçai (Logística e Operações) — tratei como a mesma pessoa. Confirme.
-7. **"Jorge"** (Compras, slide 10) — sem sobrenome; mantido separado de "Jorge Ferreira" (slide 2).
-8. **Carolina Rangel, Thais Sereno** e o card **XX** do Jurídico não têm cargo no PPT.
-9. **Flávia Aranha**: acento no slide 1, sem acento no slide 7. Pessoa com acento; marca "Flavia Aranha" sem acento.
-10. **Umuana, Amazon, ADP** foram tratados como empresas/parceiros (não pessoas).
-11. O PPT não traz **fotos, e-mails, telefones nem descrições** — todos os campos estão vazios em `data.js`.
+### Decisões confirmadas
+- **Anna Letícia Azevedo (PMO de Transição Organizacional)** — anexo do CEO: abaixo, à esquerda, linha pontilhada.
+- **Bruno Bruschinelli (Processos)** — mesma altura da Anna, à direita, linha contínua. Os diretores não se ligam a eles.
+- **Pantanal e Alter do Chão** = "Gestão Matricial" do slide 2: à esquerda do Danilo Zanatta, contorno e linha pontilhados.
+- **Atuação transversal** sai da lateral direita do líder (Danilo, Gilberto, Pedro), sem se ligar à barra dos demais.
+- **Carolina Pinheiro (Jurídico, interino)** sai da direita da Daniela Veltri.
+- **Maria Luiza Silva** é a mesma pessoa em Amma e Juçai. **Jorge** (Compras) fica sem sobrenome.
+- Todos os cards principais têm o mesmo tamanho (196 × 200 px); distância fixa de 32 px até as caixas de atuação transversal e consultores.
+
+### Em aberto (ajustes futuros)
+- CSC: slide 1 indica Evandro Salles; slide 10 indica XX — mantido como está.
+- Instituto Humanize: no slide 1 sob "Estrutura em evolução"; no slide 11 direto abaixo do CEO — mantido como está.
+- Cargos de Carolina Rangel, Thais Sereno e do card XX do Jurídico.
+- Flávia Aranha: acento no slide 1, sem acento no slide 7 (pessoa com acento, marca sem).
+- Umuana, Amazon e ADP tratados como empresas/parceiros.
+- O PPT não traz fotos, e-mails, telefones nem descrições — campos vazios em `data.js`.

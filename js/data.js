@@ -5,6 +5,9 @@
  * Para atualizar pessoas, edite "people". Para atualizar a estrutura, edite "charts".
  * Não é preciso mexer em organograma.js nem no HTML.
  *
+ * (PROVISÓRIO: descrições em "Lorem ipsum", e-mails @exemplo.com.br e telefones (00) 00000-0000
+ *  são fictícios, só para visualização — substitua pelos dados reais ou deixe "" para ocultar.)
+ *
  * people[id]
  *   name         nome exibido
  *   photo        caminho da foto, ex.: "images/organograma/rafael-fabrino.jpg"  (vazio = iniciais)
@@ -27,75 +30,79 @@
  *   stack         liderados empilhados sob o card (como no PPT)
  *   transversal   caixa "Atuação transversal" (conectada)
  *   consultants   caixa "Consultores Especializados" (sem conector, como no PPT)
- *   staff         assessorias ligadas lateralmente (side: "left" | "right")
+ *   staff         assessorias abaixo do card, presas ao tronco (side: "left" | "right", dashed: true = linha pontilhada)
+ *   matrix        lista de "Gestão matricial" à esquerda do card (contorno e linha pontilhados)
+ *   aside         nós à direita do card, no mesmo nível (ex.: interino ligado à liderança)
  *   ceo           true = destaque do CEO
  */
 window.ORG_DATA = {
   title: "Organograma zhouse",
   period: "SET | 2026 · Fase 2",
+  updated: "29/09/2026", // data exibida no botão de ajuda (?)
+  about: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante venenatis dapibus posuere velit aliquet.",
   ceo: { person: "rafael-fabrino", role: "CEO", ceo: true }, // exibido no topo de cada organograma de área
 
   people: {
-    "rafael-fabrino":         { name: "Rafael Fabrino", photo: "", email: "", phone: "", description: "" },
-    "anna-leticia-azevedo":   { name: "Anna Letícia Azevedo", photo: "", email: "", phone: "", description: "" },
-    "bruno-bruschinelli":     { name: "Bruno Bruschinelli", photo: "", email: "", phone: "", description: "" },
-    "danilo-zanatta":         { name: "Danilo Zanatta", photo: "", email: "", phone: "", description: "" },
-    "gilberto-lima":          { name: "Gilberto Lima", photo: "", email: "", phone: "", description: "" },
-    "pedro-treacher":         { name: "Pedro Treacher", photo: "", email: "", phone: "", description: "" },
-    "fernanda-schwarzstein":  { name: "Fernanda Schwarzstein", photo: "", email: "", phone: "", description: "" },
-    "flavia-aranha":          { name: "Flávia Aranha", photo: "", email: "", phone: "", description: "" },
-    "daniela-veltri":         { name: "Daniela Veltri", photo: "", email: "", phone: "", description: "" },
-    "evandro-salles":         { name: "Evandro Salles", photo: "", email: "", phone: "", description: "" },
-    "peu-cleiuodson-lage":    { name: "Peu – Cleiuodson Lage", photo: "", email: "", phone: "", description: "" },
-    "ricardo-tristao":        { name: "Ricardo Tristão", photo: "", email: "", phone: "", description: "" },
-    "joao-sampaio":           { name: "João Sampaio", photo: "", email: "", phone: "", description: "" },
-    "vaneide-nunes":          { name: "Vaneide Nunes", photo: "", email: "", phone: "", description: "" },
-    "fabio-santos":           { name: "Fábio Santos", photo: "", email: "", phone: "", description: "" },
-    "tatiana-carapinha":      { name: "Tatiana Carapinha", photo: "", email: "", phone: "", description: "" },
-    "lucas-fernandez":        { name: "Lucas Fernandez", photo: "", email: "", phone: "", description: "" },
-    "beatriz-galvao":         { name: "Beatriz Galvão", photo: "", email: "", phone: "", description: "" },
-    "fernanda-zanetti":       { name: "Fernanda Zanetti", photo: "", email: "", phone: "", description: "" },
-    "luciano-lima":           { name: "Luciano Lima", photo: "", email: "", phone: "", description: "" },
-    "jorge-ferreira":         { name: "Jorge Ferreira", photo: "", email: "", phone: "", description: "" },
-    "allan-figueiredo":       { name: "Allan Figueiredo", photo: "", email: "", phone: "", description: "" },
-    "lais-castro":            { name: "Lais Castro", photo: "", email: "", phone: "", description: "" },
-    "marco-picucci":          { name: "Marco Picucci", photo: "", email: "", phone: "", description: "" },
-    "laura-bollick":          { name: "Laura Bollick", photo: "", email: "", phone: "", description: "" },
-    "carolina-pegoraro":      { name: "Carolina Pegoraro", photo: "", email: "", phone: "", description: "" },
-    "fernando-guerra":        { name: "Fernando Guerra", photo: "", email: "", phone: "", description: "" },
-    "carolina-freitas":       { name: "Carolina Freitas", photo: "", email: "", phone: "", description: "" },
-    "fernanda-carneiro":      { name: "Fernanda Carneiro", photo: "", email: "", phone: "", description: "" },
-    "barbara-pereira":        { name: "Barbara Pereira", photo: "", email: "", phone: "", description: "" },
-    "luiz-camargo":           { name: "Luiz Camargo", photo: "", email: "", phone: "", description: "" },
-    "marcos-libretti":        { name: "Marcos Libretti", photo: "", email: "", phone: "", description: "" },
-    "renata-luke":            { name: "Renata Luke", photo: "", email: "", phone: "", description: "" },
-    "maria-luiza":            { name: "Maria Luiza", photo: "", email: "", phone: "", description: "" },
-    "diego-badaro":           { name: "Diego Badaró", photo: "", email: "", phone: "", description: "" },
-    "maria-cecilia":          { name: "Maria Cecilia", photo: "", email: "", phone: "", description: "" },
-    "gabriel-pires":          { name: "Gabriel Pires", photo: "", email: "", phone: "", description: "" },
-    "sr-pedro":               { name: "Sr. Pedro", photo: "", email: "", phone: "", description: "" },
-    "thomaz-falcao":          { name: "Thomaz Falcão", photo: "", email: "", phone: "", description: "" },
-    "carolina-pinheiro":      { name: "Carolina Pinheiro", photo: "", email: "", phone: "", description: "" },
-    "eline-martins":          { name: "Eline Martins", photo: "", email: "", phone: "", description: "" },
-    "jasmine-davies":         { name: "Jasmine Davies", photo: "", email: "", phone: "", description: "" },
-    "carolina-rangel":        { name: "Carolina Rangel", photo: "", email: "", phone: "", description: "" },
-    "thais-sereno":           { name: "Thais Sereno", photo: "", email: "", phone: "", description: "" },
-    "julio-kuhner":           { name: "Julio Kuhner – Pitanga", photo: "", email: "", phone: "", description: "" },
-    "fabio-ferreira":         { name: "Fabio Ferreira", photo: "", email: "", phone: "", description: "" },
-    "monica-brizolla":        { name: "Monica Brizolla", photo: "", email: "", phone: "", description: "" },
-    "alessandra-dias":        { name: "Alessandra Dias", photo: "", email: "", phone: "", description: "" },
-    "maria-eduarda":          { name: "Maria Eduarda", photo: "", email: "", phone: "", description: "" },
-    "jorge":                  { name: "Jorge", photo: "", email: "", phone: "", description: "" },
-    "felipe-caliman":         { name: "Felipe Caliman", photo: "", email: "", phone: "", description: "" },
-    "ana-julia":              { name: "Ana Julia", photo: "", email: "", phone: "", description: "" },
-    "tatiana-padron":         { name: "Tatiana Padron", photo: "", email: "", phone: "", description: "" },
-    "bruna-martins":          { name: "Bruna Martins", photo: "", email: "", phone: "", description: "" },
-    "fabio-hage":             { name: "Fabio Hage", photo: "", email: "", phone: "", description: "" },
-    "gilberto-santos":        { name: "Gilberto Santos", photo: "", email: "", phone: "", description: "" },
-    "oscar-santos":           { name: "Oscar Santos", photo: "", email: "", phone: "", description: "" },
-    "claudia-bechara":        { name: "Claudia Bechara", photo: "", email: "", phone: "", description: "" },
-    "glaucia":                { name: "Glaucia", photo: "", email: "", phone: "", description: "" },
-    "renata-pitombo":         { name: "Renata Pitombo", photo: "", email: "", phone: "", description: "" }
+    "rafael-fabrino":         { name: "Rafael Fabrino", photo: "", email: "rafael.fabrino@exemplo.com.br", phone: "(00) 00000-0000", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation." },
+    "anna-leticia-azevedo":   { name: "Anna Letícia Azevedo", photo: "", email: "anna.leticia.azevedo@exemplo.com.br", phone: "(00) 00000-0000", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation." },
+    "bruno-bruschinelli":     { name: "Bruno Bruschinelli", photo: "", email: "bruno.bruschinelli@exemplo.com.br", phone: "(00) 00000-0000", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation." },
+    "danilo-zanatta":         { name: "Danilo Zanatta", photo: "", email: "danilo.zanatta@exemplo.com.br", phone: "(00) 00000-0000", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation." },
+    "gilberto-lima":          { name: "Gilberto Lima", photo: "", email: "gilberto.lima@exemplo.com.br", phone: "(00) 00000-0000", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation." },
+    "pedro-treacher":         { name: "Pedro Treacher", photo: "", email: "pedro.treacher@exemplo.com.br", phone: "(00) 00000-0000", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation." },
+    "fernanda-schwarzstein":  { name: "Fernanda Schwarzstein", photo: "", email: "fernanda.schwarzstein@exemplo.com.br", phone: "(00) 00000-0000", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation." },
+    "flavia-aranha":          { name: "Flávia Aranha", photo: "", email: "flavia.aranha@exemplo.com.br", phone: "(00) 00000-0000", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation." },
+    "daniela-veltri":         { name: "Daniela Veltri", photo: "", email: "daniela.veltri@exemplo.com.br", phone: "(00) 00000-0000", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation." },
+    "evandro-salles":         { name: "Evandro Salles", photo: "", email: "evandro.salles@exemplo.com.br", phone: "(00) 00000-0000", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation." },
+    "peu-cleiuodson-lage":    { name: "Peu – Cleiuodson Lage", photo: "", email: "peu.cleiuodson.lage@exemplo.com.br", phone: "(00) 00000-0000", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation." },
+    "ricardo-tristao":        { name: "Ricardo Tristão", photo: "", email: "ricardo.tristao@exemplo.com.br", phone: "(00) 00000-0000", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation." },
+    "joao-sampaio":           { name: "João Sampaio", photo: "", email: "joao.sampaio@exemplo.com.br", phone: "(00) 00000-0000", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation." },
+    "vaneide-nunes":          { name: "Vaneide Nunes", photo: "", email: "vaneide.nunes@exemplo.com.br", phone: "(00) 00000-0000", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation." },
+    "fabio-santos":           { name: "Fábio Santos", photo: "", email: "fabio.santos@exemplo.com.br", phone: "(00) 00000-0000", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation." },
+    "tatiana-carapinha":      { name: "Tatiana Carapinha", photo: "", email: "tatiana.carapinha@exemplo.com.br", phone: "(00) 00000-0000", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation." },
+    "lucas-fernandez":        { name: "Lucas Fernandez", photo: "", email: "lucas.fernandez@exemplo.com.br", phone: "(00) 00000-0000", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation." },
+    "beatriz-galvao":         { name: "Beatriz Galvão", photo: "", email: "beatriz.galvao@exemplo.com.br", phone: "(00) 00000-0000", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation." },
+    "fernanda-zanetti":       { name: "Fernanda Zanetti", photo: "", email: "fernanda.zanetti@exemplo.com.br", phone: "(00) 00000-0000", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation." },
+    "luciano-lima":           { name: "Luciano Lima", photo: "", email: "luciano.lima@exemplo.com.br", phone: "(00) 00000-0000", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation." },
+    "jorge-ferreira":         { name: "Jorge Ferreira", photo: "", email: "jorge.ferreira@exemplo.com.br", phone: "(00) 00000-0000", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation." },
+    "allan-figueiredo":       { name: "Allan Figueiredo", photo: "", email: "allan.figueiredo@exemplo.com.br", phone: "(00) 00000-0000", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation." },
+    "lais-castro":            { name: "Lais Castro", photo: "", email: "lais.castro@exemplo.com.br", phone: "(00) 00000-0000", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation." },
+    "marco-picucci":          { name: "Marco Picucci", photo: "", email: "marco.picucci@exemplo.com.br", phone: "(00) 00000-0000", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation." },
+    "laura-bollick":          { name: "Laura Bollick", photo: "", email: "laura.bollick@exemplo.com.br", phone: "(00) 00000-0000", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation." },
+    "carolina-pegoraro":      { name: "Carolina Pegoraro", photo: "", email: "carolina.pegoraro@exemplo.com.br", phone: "(00) 00000-0000", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation." },
+    "fernando-guerra":        { name: "Fernando Guerra", photo: "", email: "fernando.guerra@exemplo.com.br", phone: "(00) 00000-0000", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation." },
+    "carolina-freitas":       { name: "Carolina Freitas", photo: "", email: "carolina.freitas@exemplo.com.br", phone: "(00) 00000-0000", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation." },
+    "fernanda-carneiro":      { name: "Fernanda Carneiro", photo: "", email: "fernanda.carneiro@exemplo.com.br", phone: "(00) 00000-0000", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation." },
+    "barbara-pereira":        { name: "Barbara Pereira", photo: "", email: "barbara.pereira@exemplo.com.br", phone: "(00) 00000-0000", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation." },
+    "luiz-camargo":           { name: "Luiz Camargo", photo: "", email: "luiz.camargo@exemplo.com.br", phone: "(00) 00000-0000", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation." },
+    "marcos-libretti":        { name: "Marcos Libretti", photo: "", email: "marcos.libretti@exemplo.com.br", phone: "(00) 00000-0000", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation." },
+    "renata-luke":            { name: "Renata Luke", photo: "", email: "renata.luke@exemplo.com.br", phone: "(00) 00000-0000", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation." },
+    "maria-luiza":            { name: "Maria Luiza Silva", photo: "", email: "maria.luiza@exemplo.com.br", phone: "(00) 00000-0000", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation." },
+    "diego-badaro":           { name: "Diego Badaró", photo: "", email: "diego.badaro@exemplo.com.br", phone: "(00) 00000-0000", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation." },
+    "maria-cecilia":          { name: "Maria Cecilia", photo: "", email: "maria.cecilia@exemplo.com.br", phone: "(00) 00000-0000", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation." },
+    "gabriel-pires":          { name: "Gabriel Pires", photo: "", email: "gabriel.pires@exemplo.com.br", phone: "(00) 00000-0000", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation." },
+    "sr-pedro":               { name: "Sr. Pedro", photo: "", email: "sr.pedro@exemplo.com.br", phone: "(00) 00000-0000", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation." },
+    "thomaz-falcao":          { name: "Thomaz Falcão", photo: "", email: "thomaz.falcao@exemplo.com.br", phone: "(00) 00000-0000", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation." },
+    "carolina-pinheiro":      { name: "Carolina Pinheiro", photo: "", email: "carolina.pinheiro@exemplo.com.br", phone: "(00) 00000-0000", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation." },
+    "eline-martins":          { name: "Eline Martins", photo: "", email: "eline.martins@exemplo.com.br", phone: "(00) 00000-0000", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation." },
+    "jasmine-davies":         { name: "Jasmine Davies", photo: "", email: "jasmine.davies@exemplo.com.br", phone: "(00) 00000-0000", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation." },
+    "carolina-rangel":        { name: "Carolina Rangel", photo: "", email: "carolina.rangel@exemplo.com.br", phone: "(00) 00000-0000", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation." },
+    "thais-sereno":           { name: "Thais Sereno", photo: "", email: "thais.sereno@exemplo.com.br", phone: "(00) 00000-0000", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation." },
+    "julio-kuhner":           { name: "Julio Kuhner – Pitanga", photo: "", email: "julio.kuhner@exemplo.com.br", phone: "(00) 00000-0000", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation." },
+    "fabio-ferreira":         { name: "Fabio Ferreira", photo: "", email: "fabio.ferreira@exemplo.com.br", phone: "(00) 00000-0000", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation." },
+    "monica-brizolla":        { name: "Monica Brizolla", photo: "", email: "monica.brizolla@exemplo.com.br", phone: "(00) 00000-0000", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation." },
+    "alessandra-dias":        { name: "Alessandra Dias", photo: "", email: "alessandra.dias@exemplo.com.br", phone: "(00) 00000-0000", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation." },
+    "maria-eduarda":          { name: "Maria Eduarda", photo: "", email: "maria.eduarda@exemplo.com.br", phone: "(00) 00000-0000", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation." },
+    "jorge":                  { name: "Jorge", photo: "", email: "jorge@exemplo.com.br", phone: "(00) 00000-0000", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation." },
+    "felipe-caliman":         { name: "Felipe Caliman", photo: "", email: "felipe.caliman@exemplo.com.br", phone: "(00) 00000-0000", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation." },
+    "ana-julia":              { name: "Ana Julia", photo: "", email: "ana.julia@exemplo.com.br", phone: "(00) 00000-0000", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation." },
+    "tatiana-padron":         { name: "Tatiana Padron", photo: "", email: "tatiana.padron@exemplo.com.br", phone: "(00) 00000-0000", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation." },
+    "bruna-martins":          { name: "Bruna Martins", photo: "", email: "bruna.martins@exemplo.com.br", phone: "(00) 00000-0000", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation." },
+    "fabio-hage":             { name: "Fabio Hage", photo: "", email: "fabio.hage@exemplo.com.br", phone: "(00) 00000-0000", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation." },
+    "gilberto-santos":        { name: "Gilberto Santos", photo: "", email: "gilberto.santos@exemplo.com.br", phone: "(00) 00000-0000", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation." },
+    "oscar-santos":           { name: "Oscar Santos", photo: "", email: "oscar.santos@exemplo.com.br", phone: "(00) 00000-0000", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation." },
+    "claudia-bechara":        { name: "Claudia Bechara", photo: "", email: "claudia.bechara@exemplo.com.br", phone: "(00) 00000-0000", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation." },
+    "glaucia":                { name: "Glaucia", photo: "", email: "glaucia@exemplo.com.br", phone: "(00) 00000-0000", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation." },
+    "renata-pitombo":         { name: "Renata Pitombo", photo: "", email: "renata.pitombo@exemplo.com.br", phone: "(00) 00000-0000", description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation." }
   },
 
   charts: [
@@ -106,7 +113,7 @@ window.ORG_DATA = {
       root: {
         person: "rafael-fabrino", role: "CEO", ceo: true,
         staff: [
-          { person: "anna-leticia-azevedo", role: "PMO de Transição Organizacional", side: "left" },
+          { person: "anna-leticia-azevedo", role: "PMO de Transição Organizacional", side: "left", dashed: true },
           { person: "bruno-bruschinelli", role: "Processos", side: "right" }
         ],
         children: [
@@ -136,7 +143,8 @@ window.ORG_DATA = {
       label: "Hospitalidade e Gastronomia",
       root: {
         person: "danilo-zanatta", role: "Operações Hospitalidade e Gastronomia",
-        units: ["Pantanal", "Alter do Chão"],
+        alignChild: 3, // alinha o 4º liderado (João Sampaio) embaixo do Danilo
+        matrix: ["Pantanal", "Alter do Chão"],
         children: [
           { person: "peu-cleiuodson-lage", role: "Rio do Brasil", units: ["Experiências e Projetos Sociais"] },
           { person: "ricardo-tristao", role: "Trancoso", units: ["Tutabel", "Tutabar", "Villas de Trancoso"] },
@@ -283,9 +291,9 @@ window.ORG_DATA = {
           { person: "jasmine-davies", role: "Projuris" },
           { person: "carolina-rangel" },
           { person: "thais-sereno" },
-          { vacant: true },
-          { person: "carolina-pinheiro", role: "Gestão Patrimonial", tag: "Interino", note: "Interino – finalizar regularizações" }
+          { vacant: true }
         ],
+        aside: [ { person: "carolina-pinheiro", role: "Gestão Patrimonial", tag: "Interino" } ],
         consultants: [ { person: "julio-kuhner", role: "Societário e Tributário" } ]
       }
     },
@@ -322,7 +330,7 @@ window.ORG_DATA = {
       id: "humanize",
       label: "Instituto Humanize",
       root: {
-        area: "Instituto Humanize",
+        vacant: true, role: "Instituto Humanize",
         children: [
           { person: "glaucia", role: "Políticas Públicas" },
           { person: "renata-pitombo", role: "Centro de Fauna Trijunção" },
